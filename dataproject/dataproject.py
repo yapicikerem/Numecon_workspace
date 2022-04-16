@@ -1,16 +1,15 @@
-def keep_regs(df, regs):
-    """ Example function. Keep only the subset regs of regions in data.
+!pip install -q yfinance
+!pip install -q yahoofinancials
+!pip install -q pandas-datareader
+import pandas as pd
+import yfinance as yf
+from yahoofinancials import YahooFinancials
+import numpy as np
+import pandas_datareader as pdr
+import datetime as dt
 
-    Args:
-        df (pd.DataFrame): pandas dataframe 
+%load_ext autoreload
+%autoreload 2
 
-    Returns:
-        df (pd.DataFrame): pandas dataframe
-
-    """ 
-    
-    for r in regs:
-        I = df.reg.str.contains(r)
-        df = df.loc[I == False] # keep everything else
-    
-    return df
+def normalize_data(df):
+    return df/df.iloc[0, :]
