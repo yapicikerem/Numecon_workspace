@@ -1,9 +1,9 @@
 import pandas as pd
-from IPython.display import display
-import matplotlib.pyplot as plt
-plt.style.use('seaborn-whitegrid')
 import yfinance as yf
 from yahoofinancials import YahooFinancials
 import numpy as np
-import datetime
-import random
+import pandas_datareader as pdr
+import datetime as datetime
+
+def normalize_data(df):
+    return df/df.iloc[0, :]
